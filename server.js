@@ -28,19 +28,19 @@ db.once('open', function(){
   console.log('Database Connected!');
 });
 
-//Passport for Auth
-var passport      = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-app.use(require('express-session')({
-  secret: 'king in the north',
-  resave: false,
-  saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// //Passport for Auth
+// var passport      = require('passport');
+// var LocalStrategy = require('passport-local').Strategy;
+// app.use(require('express-session')({
+//   secret: 'king in the north',
+//   resave: false,
+//   saveUninitialized: false
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// passport.use(User.createStrategy());
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 //Controllers
 var usersController = require('./controllers/users.js');
