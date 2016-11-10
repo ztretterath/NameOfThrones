@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var passportLocalMongoose = require('passport-local-mongoose');
 
 var CharacterSchema = new mongoose.Schema({
   name: String,
@@ -8,6 +7,5 @@ var CharacterSchema = new mongoose.Schema({
   updatedAt: Date
 })
 
-UserSchema.plugin(passportLocalMongoose);
 var Character = mongoose.model('Character', CharacterSchema);
 module.exports = Character;
