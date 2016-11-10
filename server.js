@@ -3,6 +3,10 @@ var express = require('express');
 var app     = express();
 var path    = require('path');
 
+//Models
+User = require('./models/user');
+Character = require('./models/character');
+
 //Debug
 var logger = require('morgan');
 app.use(logger('dev'));
@@ -28,31 +32,28 @@ db.once('open', function(){
   console.log('Database Connected!');
 });
 
-// //Passport for Auth
-// var passport      = require('passport');
-// var LocalStrategy = require('passport-local').Strategy;
-// app.use(require('express-session')({
-//   secret: 'king in the north',
-//   resave: false,
-//   saveUninitialized: false
-// }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// passport.use(User.createStrategy());
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+// Eventual Heroku
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/nameofthrones';
+mongoose.connect(mongoURI);
+
+//Passport for Auth
+var passport      = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+app.use(require('express-session')({
+  secret: 'king in the north',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 //Controllers
 var usersController = require('./controllers/users.js');
-
-//Route
 app.use('/users', usersController);
 
 app.listen(process.env.PORT || 3000, function(){
   console.log('LOUD AND CLEAR ON 3000');
 });
-
-
-//Eventual Heroku
-// var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/nameofthrones';
-// mongoose.connect(mongoURI);
