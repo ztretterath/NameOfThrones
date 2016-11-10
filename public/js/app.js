@@ -10,6 +10,14 @@
           url: '/',
           templateUrl: '../partials/_home.html'
         })
+        .state('profile', {
+          url: '/profile',
+          templateUrl: '../partials/_profile.html'
+        })
+        .state('login', {
+          url: '/login',
+          templateUrl: '../partials/_login.html'
+        })
 
       $urlRouterProvider.otherwise('/');
     }

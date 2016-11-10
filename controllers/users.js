@@ -21,4 +21,12 @@ router.post('/signup', function(req, res){
   });
 });
 
+//Log In
+router.post('/login', passport.authenticate('local'), function(req, res){
+  req.session.save(function(err){
+    if (err) return next(err);
+    res.json({status: 200, user: req.user});
+  });
+});
+
 module.exports = router;

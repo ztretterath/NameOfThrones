@@ -13,6 +13,7 @@
           data: user
         })
         .then(function(response){
+          $state.go('login', {url: '/login'})
           console.log('USER ==> ', response.data.user);
         })
         .catch(function(error){
@@ -20,6 +21,21 @@
         })
       }
 
+      this.login = function(user){
+        return $http({
+          url: '/users/login',
+          method: 'POST',
+          data: user
+        })
+        .then(function(response){
+          self.currentUser = response.data.user
+          $state.go('profile', {url: '/profile'});
+          console.log(self.currentUser);
+        })
+        .catch(function(error){
+          console.log('ERROR ==> ', error);
+        })
+      }
 
 
     }
