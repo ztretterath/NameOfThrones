@@ -29,4 +29,10 @@ router.post('/login', passport.authenticate('local'), function(req, res){
   });
 });
 
+//Log Out
+router.delete('/logout', function(req, res){
+  req.logout();
+  res.json({status: 200, message: 'Logged Out'})
+});
+
 module.exports = router;

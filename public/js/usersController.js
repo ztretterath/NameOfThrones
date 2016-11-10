@@ -37,6 +37,21 @@
         })
       }
 
+      this.logout = function(user){
+        return $http({
+          url: '/users/logout',
+          method: 'DELETE',
+          data: user
+        })
+        .then(function(response){
+          console.log('LOGOUT SUCCESSFUL');
+          $state.go('home', {url: '/'})
+        })
+        .catch(function(error){
+          console.log('ERROR ==> ', error);
+        })
+      }
+
 
     }
 })()
