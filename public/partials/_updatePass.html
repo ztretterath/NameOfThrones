@@ -1,0 +1,5 @@
+<h3>Update {{users.currentUser.firstName}}'s password</h3>
+<form ng-submit="users.update(user)">
+  <input type="text" placeholder="New Password" ng-model="user.password">
+  <button type="submit">Save</button>
+</form>

@@ -18,6 +18,11 @@
           url: '/login',
           templateUrl: '../partials/_login.html'
         })
+        // .state('update', {
+        //   url: '/update',
+        //   templateUrl: '../partials/_updatePass.html'
+        // })
+
 
       $urlRouterProvider.otherwise('/');
     }

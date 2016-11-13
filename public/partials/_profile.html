@@ -2,3 +2,18 @@
 <form ng-submit="users.logout(user)">
   <button type="submit">Logout</button>
 </form>
+<form ng-submit="users.add(character)">
+  <input type="text" placeholder="Name" ng-model="character.name">
+  <input type="text" placeholder="House" ng-model="character.house">
+  <button type="submit">Add</button>
+</form>
+<div ng-repeat="character in users.currentUser.characters">
+  <ul>
+    <li><a ui-sref="character">{{character.name}} of House {{character.house}}</a> Notes: {{character.notes}}</li>
+  </ul>
+  <h4>Add Notes</h4>
+  <form ng-submit="users.addNote(character, note)">
+    <input type="textarea" placeholder="Notes" ng-model="note.content">
+    <button type="submit">Add Note</button>
+  </form>
+</div>

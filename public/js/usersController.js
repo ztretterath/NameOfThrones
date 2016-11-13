@@ -5,7 +5,15 @@
     function usersController($http, $state) {
       var self = this;
 
-      //https://api.got.show/api/characters/paths/:name
+      //Helper to get currentUser
+      $http.get('/helpers/getUser')
+        .then(function(response){
+          self.currentUser = response.data.user;
+        })
+        .catch(function(error){
+          console.log(error);
+        })
+
       this.createUser = function(user){
         return $http({
           url: '/users/signup',
@@ -49,6 +57,41 @@
         })
         .catch(function(error){
           console.log('ERROR ==> ', error);
+        })
+      }
+
+      //Add Character
+      this.add = function(character){
+        return $http({
+          url: '/users/add',
+          method: 'POST',
+          data: character
+        })
+        .then(function(response){
+          console.log(response);
+          self.currentUser.characters.push(character);
+        })
+        .then(function(response){
+          console.log(self.currentUser.characters);
+        })
+        .catch(function(error){
+          console.log('ERROR ==> ', error);
+        })
+      }
+
+      //Add Note
+      this.addNote = function(character, note){
+        return $http({
+          url: `/users/characters/${character._id}`,
+          method: 'PUT',
+          data: note
+        })
+        .then(function(response){
+          self.currentUser.characters(character._id).notes.push(note)
+          console.log(response);
+        })
+        .catch(function(error){
+          console.log(error);
         })
       }
 

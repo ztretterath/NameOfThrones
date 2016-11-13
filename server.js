@@ -40,7 +40,7 @@ mongoose.connect(mongoURI);
 var passport      = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 app.use(require('express-session')({
-  secret: 'king in the north',
+  secret: 'king',
   resave: false,
   saveUninitialized: false
 }));
@@ -53,6 +53,8 @@ passport.deserializeUser(User.deserializeUser());
 //Controllers
 var usersController = require('./controllers/users.js');
 app.use('/users', usersController);
+var helpersController = require('./controllers/helpers.js');
+app.use('/helpers', helpersController);
 
 app.listen(process.env.PORT || 3000, function(){
   console.log('LOUD AND CLEAR ON 3000');
