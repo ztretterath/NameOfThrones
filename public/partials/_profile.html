@@ -5,15 +5,31 @@
 <form ng-submit="users.add(character)">
   <input type="text" placeholder="Name" ng-model="character.name">
   <input type="text" placeholder="House" ng-model="character.house">
+  <input type="textarea" placeholder="Notes" ng-model="character.notes">
   <button type="submit">Add</button>
 </form>
 <div ng-repeat="character in users.currentUser.characters">
   <ul>
-    <li><a ui-sref="character">{{character.name}} of House {{character.house}}</a> Notes: {{character.notes}}</li>
+    <li ng-click="showNotes = ! showNotes"><a ui-sref="character">{{character.name}} of House {{character.house}}</a></li>
   </ul>
-  <h4>Add Notes</h4>
+  <p ng-show="showNotes">
+    {{character.notes}}
+  </p>
+  <p ng-click="showEdit = ! showEdit">
+    edit
+  </p>
+  <form ng-submit="users.update(character)" ng-show="showEdit">
+    <input type="text" value="{{character.name}}" ng-model="character.name">
+    <input type="text" value="{{character.house}}" ng-model="character.house">
+    <input type="textarea" value="{{character.notes}}" ng-model="character.notes">
+    <button type="submit">Save</button>
+  </form>
+  <form ng-submit="users.delete(character)" ng-show="showEdit">
+    <button type="submit">Delete</button>
+  </form>
+  <!-- <h4>Add Notes</h4>
   <form ng-submit="users.addNote(character, note)">
     <input type="textarea" placeholder="Notes" ng-model="note.content">
     <button type="submit">Add Note</button>
-  </form>
+  </form> -->
 </div>

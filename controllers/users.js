@@ -38,7 +38,7 @@ router.post('/add', function(req, res){
     user[0].characters.push({
       name: req.body.name,
       house: req.body.house,
-      notes: ""
+      notes: req.body.notes
     })
     return user[0].save();
   })
@@ -50,23 +50,46 @@ router.post('/add', function(req, res){
   })
 })
 
-//Add Note
-router.put('/characters/:id', function(req, res){
+//Edit Character
+router.put('/update', function(req, res){
   var user = req.session.passport.user;
   User.findOne({username: user}).exec()
     .then(function(user){
-      console.log(req.body.content);
-      var character = user.characters.id(req.params.id)
-      character.notes.push(req.body.content);
-      // user.save();
+      console.log(req.body.character._id);
+      var character = user.characters.id(req.body.character._id)
+      return character;
     })
-    .then(function(res){
-      console.log(res);
+    .then(function(character){
+      character.name = req.body.character.name;
+      character.house = req.body.character.house;
+      character.notes = req.body.character.notes
+      character.save();
+    })
+    .then(function(character){
+      console.log(character);
+      {character: character}
     })
     .catch(function(error){
       console.log(error);
     })
-  // console.log(req.body.character.notes);
+})
+
+// Delete Character
+router.delete('/delete/:characterId', function(req, res){
+  var user = req.session.passport.user;
+  User.findOne({username: user}).exec()
+    .then(function(user){
+      // console.log(user.characters.id(req.params.characterId));
+      var character = user.characters.id(req.params.characterId)
+      character.remove();
+      return user.save();
+    })
+    .then(function(user){
+      res.json({user: user})
+    })
+    .catch(function(error){
+      console.log(error);
+    })
 })
 
 //Log Out

@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var NoteSchema = require('./note').schema;
+// var NoteSchema = require('./note').schema;
 
 var CharacterSchema = new mongoose.Schema({
   name: String,
   house: String,
-  notes: [NoteSchema]
+  notes: String
   // createdAt: Date,
   // updatedAt: Date
 })

@@ -79,21 +79,30 @@
         })
       }
 
-      //Add Note
-      this.addNote = function(character, note){
+      this.update = function(character){
+        $http.put('/users/update', {character: character})
+          .then(function(response){
+            console.log(response);
+          })
+          .catch(function(error){
+            console.log('ERROR ==> ', error);
+          })
+      }
+
+      this.delete = function(character){
         return $http({
-          url: `/users/characters/${character._id}`,
-          method: 'PUT',
-          data: note
+          url: `/users/delete/${character._id}`,
+          method: 'DELETE',
+          data: character
         })
-        .then(function(response){
-          self.currentUser.characters(character._id).notes.push(note)
-          console.log(response);
+        .then(function(reponse){
+          console.log('DELETED');
         })
         .catch(function(error){
           console.log(error);
         })
       }
+
 
 
     }

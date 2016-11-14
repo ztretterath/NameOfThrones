@@ -1,0 +1,264 @@
+body{
+    /*background: #eee;*/
+}
+*{
+    box-sizing: border-box;
+}
+
+.artboard{
+    width: 800px;
+    height: 600px;
+    background: #431705;
+    box-shadow: 0px 3px 20px rgba(0,0,0,0.2);
+    border-radius: 3px;
+    margin:50px auto;
+    border:20px white solid;
+    position: relative;
+    overflow: hidden
+}
+
+/*sword*/
+.all{
+    position: relative;
+    width: 200px;
+    height: 500px;
+    /*background: pink;*/
+    left: 264px;
+    top: 140px;
+    animation: linea 3.5s infinite;
+}
+@keyframes linea{
+    0%{
+        transform: translate3d(-100px,0px,0px);
+    }
+    50%{
+        transform: translate3d(100px,0px,0px);
+    }
+    100%{
+        transform: translate3d(-100px,0px,0px);
+    }
+}
+.sword{
+    position: absolute;
+    width: 200px;
+    height: 500px;
+    /*background: pink;*/
+    left:0px;
+    top: 0px;
+
+    -webkit-animation-name: spinnerRotate;
+    -webkit-animation-duration: 3.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spinnerRotate;
+    -moz-animation-duration: 3.5s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spinnerRotate;
+    -ms-animation-duration: 3.5s;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+}
+.blade-left{
+    position: absolute;
+    border-top:42px solid transparent;
+    border-left: 0px solid transparent;
+    border-right:11px solid #C6C6C6;
+    width: 0px;
+    height: 251px;
+    left: 89px;
+    top: 0px;
+}
+.fuller-left{
+    position: absolute;
+    border-top:42px solid transparent;
+    border-left: 0px solid transparent;
+    border-right:2px solid #AFAFAF;
+    width: 0px;
+    height: 109px;
+    left: 4px;
+    top: 95px;
+}
+.blade-right{
+    position: absolute;
+    border-top:42px solid transparent;
+    border-left: 11px solid #F8F8F8;
+    border-right:0px solid transparent;
+    width: 0px;
+    height: 251px;
+    left: 99.4px;
+    top: 0px;
+}
+.fuller-right{
+    position: absolute;
+    border-top:42px solid transparent;
+    border-left: 2px solid #AFAFAF;
+    border-right:0px solid transparent;
+    width: 0px;
+    height: 109px;
+    left: -6px;
+    top: 95px;
+}
+.cross-guard{
+    position: absolute;
+    width: 100px;
+    height: 10px;
+    background: #D6D5D5;
+    border-bottom: 5px solid #949494;
+    left: 47px;
+    top: 242px;
+}
+.border-left{
+
+  position: absolute;
+  margin: 10px;
+  width:11px;
+  height:9.7px;
+  border-top:-14px solid #C38E00;
+  border-left:10px solid #C38E00;
+  border-radius:52px 0px 0 4px;
+  top:-10px;
+  left:-14.9px;
+  -webkit-transform:rotate(-45deg);
+}
+.border-right{
+
+  position: absolute;
+  margin: 10px;
+  width:11px;
+  height:9.7px;
+  border-top:-14px solid #C38E00;
+  border-left:10px solid #C38E00;
+  border-radius:52px 0px 0 4px;
+  top:-9px;
+  left:84px;
+  -webkit-transform:rotate(135deg);
+}
+.grip{
+    position: absolute;
+    width: 10px;
+    height: 100px;
+    background: #A93000;
+    top: 237px;
+    left: 94px;
+}
+.lines{
+    position: absolute;
+    width: 12px;
+    height: 5px;
+    background: #822500;
+    top: 14px;
+    left: -1px;
+    border-radius: 5px;
+}
+.a{
+    top: 21px;
+    left: -1px;
+}
+.b{
+    top: 28px;
+    left: -1px;
+}
+.d{
+   top: 35px;
+   left: -1px;
+}
+.e{
+   top: 42px;
+   left: -1px;
+}
+.f{
+   top: 49px;
+   left: -1px;
+}
+.h{
+   top: 56px;
+   left: -1px;
+}
+.i{
+   top: 63px;
+   left: -1px;
+}
+.j{
+   top: 70px;
+   left: -1px;
+}
+.k{
+   top: 77px;
+   left: -1px;
+}
+.l{
+   top: 84px;
+   left: -1px;
+}
+.m{
+   top: 91px;
+   left: -1px;
+}
+.n{
+   top: 98px;
+   left: -1px;
+}
+.grip-shadow{
+    position: absolute;
+    width: 6px;
+    height: 100px;
+    box-shadow: 3px 3px 9px rgba(256,256,256,0.2);
+    top: 0px;
+    left: -1px;
+}
+
+.pommel{
+    position: relative;
+    width: 28px;
+    height: 30px;
+    /*background: pink;*/
+    top: 83px;
+    left: 5px;
+}
+
+
+.tritopleft{
+    position: absolute;
+    border-top:14px solid #DFBD00;
+    border-right:8px solid transparent;
+    top: 14px;
+    left: 0px;
+}
+.tritopright{
+    position: absolute;
+    border-top:14px solid #FFD800;
+    border-left:8px solid transparent;
+    top: 14px;
+    left: -8px;
+}
+.tridownright{
+    position: absolute;
+    border-bottom:10px solid #DFBD00;
+    border-left:8px solid transparent;
+    top: 4px;
+    left: -8px;
+}
+.tridownleft{
+    position: absolute;
+    border-bottom:10px solid #FFD800;
+    border-right:8px solid transparent;
+    top: 4px;
+}
+
+@-webkit-keyframes spinnerRotate
+{
+    0%{-webkit-transform:rotate(300deg);}
+    50%{-webkit-transform:rotate(450deg);}
+    100%{-webkit-transform:rotate(300deg);}
+}
+@-moz-keyframes spinnerRotate
+{
+    from{-moz-transform:rotate(0deg);}
+    to{-moz-transform:rotate(360deg);}
+}
+@-ms-keyframes spinnerRotate
+{
+    from{-ms-transform:rotate(0deg);}
+    to{-ms-transform:rotate(360deg);}
+}
