@@ -13,6 +13,13 @@ var request = require('request');
 //     }
 //   })
 // })
+// router.get('/getChars', function(req, res){
+//   var user = req.session.passport.user;
+//   User.find({username: user}).exec()
+//     .then(function(user){
+//       return user[0].characters
+//     })
+// })
 
 //Set currentUser
 router.get('/getUser', function(req, res){

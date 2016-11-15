@@ -5,6 +5,12 @@ body{
     box-sizing: border-box;
 }
 
+.sign-up {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .artboard{
     width: 800px;
     height: 600px;
@@ -261,4 +267,14 @@ body{
 {
     from{-ms-transform:rotate(0deg);}
     to{-ms-transform:rotate(360deg);}
+}
+
+body {
+  background-color: #78909c;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -14,6 +14,23 @@
           console.log(error);
         })
 
+      // Helper to get characters
+      self.getChars = function(characters){
+        return $http({
+          url: '/users/getChars',
+          method: 'GET',
+          data: characters
+        })
+        .then(function(response){
+          self.currentUser.characters = response.data.characters;
+          console.log(response);
+        })
+        .catch(function(error){
+          console.log(error);
+        })
+      }
+
+
       this.createUser = function(user){
         return $http({
           url: '/users/signup',
@@ -70,9 +87,7 @@
         .then(function(response){
           console.log(response);
           self.currentUser.characters.push(character);
-        })
-        .then(function(response){
-          console.log(self.currentUser.characters);
+          self.getChars();
         })
         .catch(function(error){
           console.log('ERROR ==> ', error);
@@ -82,7 +97,8 @@
       this.update = function(character){
         $http.put('/users/update', {character: character})
           .then(function(response){
-            console.log(response);
+            self.getChars();
+            console.log('UPDATED');
           })
           .catch(function(error){
             console.log('ERROR ==> ', error);
@@ -96,14 +112,13 @@
           data: character
         })
         .then(function(reponse){
+          self.getChars();
           console.log('DELETED');
         })
         .catch(function(error){
           console.log(error);
         })
       }
-
-
 
     }
 })()

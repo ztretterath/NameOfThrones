@@ -6,11 +6,11 @@
   <input type="text" placeholder="Name" ng-model="character.name">
   <input type="text" placeholder="House" ng-model="character.house">
   <input type="textarea" placeholder="Notes" ng-model="character.notes">
-  <button type="submit">Add</button>
+  <button type="submit" ng-click="reset()">Add</button>
 </form>
 <div ng-repeat="character in users.currentUser.characters">
   <ul>
-    <li ng-click="showNotes = ! showNotes"><a ui-sref="character">{{character.name}} of House {{character.house}}</a></li>
+    <li ng-click="showNotes = ! showNotes">{{character.name}} of House {{character.house}}</li>
   </ul>
   <p ng-show="showNotes">
     {{character.notes}}

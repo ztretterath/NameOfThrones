@@ -30,6 +30,18 @@ router.post('/login', passport.authenticate('local'), function(req, res){
   });
 });
 
+router.get('/getChars', function(req, res){
+  var user = req.session.passport.user;
+  User.find({username: user}).exec()
+    .then(function(user){
+      var characters = user[0].characters;
+      res.json({characters: characters})
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+})
+
 //Add Character
 router.post('/add', function(req, res){
   var user = req.session.passport.user;
@@ -55,19 +67,14 @@ router.put('/update', function(req, res){
   var user = req.session.passport.user;
   User.findOne({username: user}).exec()
     .then(function(user){
-      console.log(req.body.character._id);
       var character = user.characters.id(req.body.character._id)
-      return character;
-    })
-    .then(function(character){
       character.name = req.body.character.name;
       character.house = req.body.character.house;
-      character.notes = req.body.character.notes
-      character.save();
+      character.notes = req.body.character.notes;
+      return user.save();
     })
-    .then(function(character){
-      console.log(character);
-      {character: character}
+    .then(function(response){
+      console.log(response);
     })
     .catch(function(error){
       console.log(error);

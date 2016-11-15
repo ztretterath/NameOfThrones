@@ -1,13 +1,22 @@
-<h3>Sign Up</h3>
-<form ng-submit="users.createUser(user)">
-  <input type="text" placeholder="First Name" ng-model="user.firstName">
-  <input type="text" placeholder="Last Name" ng-model="user.lastName">
-  <input type="text" placeholder="Username" ng-model="user.username">
-  <input type="password" placeholder="Password" ng-model="user.password">
-  <button type="submit">Submit</button>
-</form>
-
-<h4>Have an account? <a ui-sref="login">Login</a></h4>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text"  class="sign-up">
+        <span class="card-title">Sign Up</span>
+        <form ng-submit="users.createUser(user)">
+          <input type="text" placeholder="First Name" ng-model="user.firstName">
+          <input type="text" placeholder="Last Name" ng-model="user.lastName">
+          <input type="text" placeholder="Username" ng-model="user.username">
+          <input type="password" placeholder="Password" ng-model="user.password">
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="card-action">
+      <h4>Have an account? <a ui-sref="login">Login</a></h4>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- SWORD -->
 <div class="all">
