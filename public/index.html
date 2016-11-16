@@ -20,7 +20,27 @@
     <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
   </head>
   <body ng-controller="usersController as users">
-    <img src="images/title.png"/>
+    <span id="img">
+      <img src="images/title.png" style="border: 5px solid black"/>
+    </span>
+    <nav class="nav-extended black">
+      <div class="nav-wrapper">
+        <div id="welcome">
+            <a ng-if="users.currentUser" class="brand-logo">Welcome {{users.currentUser.firstName}}</a>
+        </div>
+        <ul class="right">
+          <li ng-if="users.currentUser" class="nav"><a ng-click="users.logout(user)">Logout</a></li>
+          <li ng-if="users.currentUser" class="nav"><a ui-sref="profile">Profile</a></li>
+          <li ng-if="!users.currentUser" class="nav"><a ui-sref="home">Signup</a></li>
+          <li class="nav"><a href="http://awoiaf.westeros.org/index.php/Main_Page">Wiki</a></li>
+          <li class="nav"><a ui-sref="houses">Houses</a></li>
+        </ul>
+      </div>
+    </nav>
     <ui-view></ui-view>
+    <form ng-submit="users.query(num)">
+      <input type="number" ng-model="num">
+      <button type="submit">Query</button>
+    </form>
   </body>
 </html>

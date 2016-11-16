@@ -14,6 +14,35 @@
           console.log(error);
         })
 
+      // $http.get('/helpers/got')
+      //   .then(function(response){
+      //     console.log(response);
+      //   })
+      //   .catch(function(error){
+      //     console.log(error);
+      //   })
+
+      self.query = function(response){
+        var char = response;
+        return $http({
+          url: '/helpers/got',
+          method: 'POST',
+          data: {char: char}
+        })
+        .then(function(char){
+          var charInfo = {};
+          charInfo.name = char.data.name
+          charInfo.dob = char.data.born
+          charInfo.alias = char.data.aliases[0]
+
+          console.log(charInfo);
+          return charInfo
+        })
+        .catch(function(error){
+          console.log(error);
+        })
+      }
+
       // Helper to get characters
       self.getChars = function(characters){
         return $http({
@@ -69,6 +98,7 @@
           data: user
         })
         .then(function(response){
+          self.currentUser = ''
           console.log('LOGOUT SUCCESSFUL');
           $state.go('home', {url: '/'})
         })

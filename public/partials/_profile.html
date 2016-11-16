@@ -1,35 +1,96 @@
-<h3>Profile of {{users.currentUser.firstName}}</h3>
-<form ng-submit="users.logout(user)">
-  <button type="submit">Logout</button>
-</form>
-<form ng-submit="users.add(character)">
-  <input type="text" placeholder="Name" ng-model="character.name">
-  <input type="text" placeholder="House" ng-model="character.house">
-  <input type="textarea" placeholder="Notes" ng-model="character.notes">
-  <button type="submit" ng-click="reset()">Add</button>
-</form>
-<div ng-repeat="character in users.currentUser.characters">
-  <ul>
-    <li ng-click="showNotes = ! showNotes">{{character.name}} of House {{character.house}}</li>
-  </ul>
-  <p ng-show="showNotes">
-    {{character.notes}}
-  </p>
-  <p ng-click="showEdit = ! showEdit">
-    edit
-  </p>
-  <form ng-submit="users.update(character)" ng-show="showEdit">
-    <input type="text" value="{{character.name}}" ng-model="character.name">
-    <input type="text" value="{{character.house}}" ng-model="character.house">
-    <input type="textarea" value="{{character.notes}}" ng-model="character.notes">
-    <button type="submit">Save</button>
-  </form>
-  <form ng-submit="users.delete(character)" ng-show="showEdit">
-    <button type="submit">Delete</button>
-  </form>
-  <!-- <h4>Add Notes</h4>
-  <form ng-submit="users.addNote(character, note)">
-    <input type="textarea" placeholder="Notes" ng-model="note.content">
-    <button type="submit">Add Note</button>
-  </form> -->
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card black lighten-2">
+      <div class="card-content white-text"  class="sign-up">
+        <span class="card-title">Add New Character</span>
+          <form ng-submit="users.add(character)">
+           <div class="row">
+             <div class="input-field col s6">
+               <input id="name" type="text" class="validate" ng-model="character.name">
+               <label for="name">Name</label>
+             </div>
+             <div class="input-field col s6">
+               <input id="house" type="text" class="validate" ng-model="character.house">
+               <label for="house">House</label>
+             </div>
+           </div>
+           <div class="row">
+             <div class="input-field col s12">
+               <input id="notes" type="text" class="validate" ng-model="character.notes">
+               <label for="notes">Notes</label>
+             </div>
+           </div>
+           <button class="btn-large waves-effect waves-light brown" type="submit">Submit</button>
+          </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div ng-repeat="character in users.currentUser.characters">
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card black lighten-2">
+      <div class="card-content white-text"  class="sign-up">
+        <span class="card-title" ng-click="showNotes = ! showNotes">{{character.name}} of House {{character.house}}</span>
+          <p ng-show="showNotes" id="notes">
+            {{character.notes}}
+          </p>
+          <p ng-click="showEdit = ! showEdit">
+            CLICK TO EDIT
+          </p>
+          <form ng-submit="users.update(character)" ng-show="showEdit">
+            <input type="text" value="{{character.name}}" ng-model="character.name">
+            <input type="text" value="{{character.house}}" ng-model="character.house">
+            <input type="text" value="{{character.notes}}" ng-model="character.notes">
+            <button class="btn-large waves-effect waves-light brown" type="submit">Save</button>
+          </form>
+          <form ng-submit="users.delete(character)" ng-show="showEdit">
+            <button class="btn-large waves-effect waves-light red" type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SWORD -->
+<div class="all">
+        <div class="sword">
+         <div class="grip">
+             <div class="lines"></div>
+             <div class="lines a"></div>
+             <div class="lines b"></div>
+             <div class="lines c"></div>
+             <div class="lines d"></div>
+             <div class="lines e"></div>
+             <div class="lines f"></div>
+             <div class="lines h"></div>
+             <div class="lines i"></div>
+             <div class="lines j"></div>
+             <div class="lines k"></div>
+             <div class="lines l"></div>
+             <div class="lines m"></div>
+             <div class="lines n"></div>
+             <div class="grip-shadow"></div>
+             <div class="pommel">
+                 <div class="tritopleft"></div>
+                 <div class="tritopright"></div>
+                 <div class="tridownleft"></div>
+                 <div class="tridownright"></div>
+             </div>
+
+         </div>
+         <div class="blade-left">
+             <div class="fuller-left"></div>
+         </div>
+         <div class="blade-right">
+             <div class="fuller-right"></div>
+         </div>
+         <div class="cross-guard">
+             <div class="border-left"></div>
+             <div class="border-right"></div>
+         </div>
+
+     </div>
+    </div>

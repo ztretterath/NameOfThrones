@@ -3,23 +3,16 @@ var router = express.Router();
 var request = require('request');
 
 //Helper for GoT API
-// router.get('/got', function(req, res){
-//   var name = req.body.name
-//   console.log(name);
-//   request(`https://api.got.show/api/characters/paths/'${name}'`, function(error, res, body) {
-//     if (!error && res.statusCode == 200) {
-//       var parse = JSON.parse(body);
-//       res.json(parse)
-//     }
-//   })
-// })
-// router.get('/getChars', function(req, res){
-//   var user = req.session.passport.user;
-//   User.find({username: user}).exec()
-//     .then(function(user){
-//       return user[0].characters
-//     })
-// })
+router.post('/got', function(req, res){
+  var num = req.body.char
+  request(`http://www.anapioficeandfire.com/api/characters/${num}`, function(error, response, body) {
+    if (!error && res.statusCode == 200) {
+      var parse = JSON.parse(body);
+      res.json(parse);
+    }
+  })
+})
+
 
 //Set currentUser
 router.get('/getUser', function(req, res){
