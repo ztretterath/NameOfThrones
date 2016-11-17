@@ -26,6 +26,12 @@ input:focus {
   color: white !important;
 }
 
+textarea:focus {
+  border-bottom: 1px solid #353B40 !important;
+  box-shadow: 0 1px 0 0 #353B40 !important;
+  color: white !important;
+}
+
 .input-field label {
   color: white !important;
 }
@@ -126,7 +132,7 @@ input:focus {
     height: 500px;
     /*background: pink;*/
     right: 264px;
-    top: 250px;
+    top: 350px;
     animation: linea 3.5s infinite;
 }
 @keyframes linea{
