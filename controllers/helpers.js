@@ -13,8 +13,7 @@ router.post('/got', function(req, res){
   })
 })
 
-
-//Set currentUser
+//Sets currentUser
 router.get('/getUser', function(req, res){
   var user = req.user;
   res.json({user: user});

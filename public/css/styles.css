@@ -20,6 +20,16 @@ img {
   max-height: 40vh;
 }
 
+input:focus {
+  border-bottom: 1px solid #353B40 !important;
+  box-shadow: 0 1px 0 0 #353B40 !important;
+  color: white !important;
+}
+
+.input-field label {
+  color: white !important;
+}
+
 /*.house-image {
   display: flex;
   flex-wrap: wrap;
@@ -43,8 +53,28 @@ img {
   left: 30px;
 }
 
+#search {
+  position: absolute;
+  right: 20px;
+  top: 218px;
+}
+
+@media(max-width: 900px) {
+  #search {
+    display: none;
+  }
+}
+
+#charInfo {
+  border: 1px white solid;
+  padding: 5px;
+}
+
 #notes {
-  font-size: 2vw;
+  font-style: italic;
+  font-size: 1.5vw;
+  color: white;
+  padding: 10px;
 }
 
 #cardCss {
@@ -58,7 +88,6 @@ img {
 
 #login {
   margin-left: auto;
-  margin-right: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,7 +126,7 @@ img {
     height: 500px;
     /*background: pink;*/
     right: 264px;
-    top: 350px;
+    top: 250px;
     animation: linea 3.5s infinite;
 }
 @keyframes linea{
@@ -336,14 +365,8 @@ img {
     to{-ms-transform:rotate(360deg);}
 }
 
-@media(max-width: 1250px) {
+@media(max-width: 1300px) {
   .all {
     display: none;
   }
 }
-
-/*@media(max-width: 1250px) {
-  .all {
-    display: none;
-  }
-}*/

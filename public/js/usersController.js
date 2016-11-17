@@ -14,14 +14,7 @@
           console.log(error);
         })
 
-      // $http.get('/helpers/got')
-      //   .then(function(response){
-      //     console.log(response);
-      //   })
-      //   .catch(function(error){
-      //     console.log(error);
-      //   })
-
+      // Query API by ID
       self.query = function(response){
         var char = response;
         return $http({
@@ -30,18 +23,25 @@
           data: {char: char}
         })
         .then(function(char){
-          var charInfo = {};
-          charInfo.name = char.data.name
-          charInfo.dob = char.data.born
-          charInfo.alias = char.data.aliases[0]
+          self.charInfo = {};
+          self.charInfo.name = char.data.name
+          self.charInfo.dob = char.data.born
+          self.charInfo.alias = char.data.aliases[0]
+          self.charInfo.playedBy = char.data.playedBy[0]
 
-          console.log(charInfo);
-          return charInfo
+          console.log(self.charInfo);
+          return self.charInfo
         })
         .catch(function(error){
           console.log(error);
         })
       }
+
+      // self.reset = function(character){
+      //   character.name = '';
+      //   character.house = '';
+      //   character.notes = '';
+      // }
 
       // Helper to get characters
       self.getChars = function(characters){
@@ -117,6 +117,7 @@
         .then(function(response){
           console.log(response);
           self.currentUser.characters.push(character);
+          // self.reset();
           self.getChars();
         })
         .catch(function(error){

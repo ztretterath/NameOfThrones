@@ -8,16 +8,17 @@
     <link href="./css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
-    <!-- ANGULAR -->
+    <!-- ANGULAR/JQUERY -->
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <!-- END ANGULAR -->
     <script src="./js/app.js"></script>
     <script src="./js/usersController.js"></script>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
   </head>
   <body ng-controller="usersController as users">
     <span id="img">
@@ -34,13 +35,48 @@
           <li ng-if="!users.currentUser" class="nav"><a ui-sref="home">Signup</a></li>
           <li class="nav"><a href="http://awoiaf.westeros.org/index.php/Main_Page">Wiki</a></li>
           <li class="nav"><a ui-sref="houses">Houses</a></li>
+          <li class="nav"><a ng-click="showSearch = ! showSearch">Search</a></li>
         </ul>
       </div>
     </nav>
-    <ui-view></ui-view>
-    <form ng-submit="users.query(num)">
-      <input type="number" ng-model="num">
-      <button type="submit">Query</button>
-    </form>
+    <div class="container">
+      <ui-view></ui-view>
+      <div ng-show="showSearch">
+        <div id="search">
+          <div class="column">
+            <div class="col s12 m6" id="login">
+              <div class="card black lighten-2">
+                  <div class="card-content white-text"  class="sign-up">
+                    <span class="card-title">Search by Id</span>
+                      <form ng-submit="users.query(num)">
+                        <div class="row">
+                         <div class="input-field col s12">
+                           <input id="first_name" type="number" ng-model="num">
+                           <label for="first_name">Search</label>
+                         </div>
+                       </div>
+                       <button class="btn-large waves-effect waves-light brown" type="submit">Submit</button>
+                      </form>
+                      <div ng-show="users.charInfo"  id="charInfo">
+                        <h5>
+                          Name: {{users.charInfo.name}}<br>
+                          AKA: {{users.charInfo.alias}}<br>
+                          Born: {{users.charInfo.dob}}<br>
+                          Played By: {{users.charInfo.playedBy}}
+                        </h5>
+                      </div>
+                      <span class="card-title" ng-click="showChars = ! showChars">List of Ids</span>
+                      <ul ng-show="showChars">
+                        <li>Jon Snow: 583</li>
+                        <li>Petyr Baelish: 823</li>
+                        <li>Stannis Baratheon: 1963</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
   </body>
 </html>

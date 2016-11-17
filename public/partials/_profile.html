@@ -2,8 +2,8 @@
   <div class="col s12 m6">
     <div class="card black lighten-2">
       <div class="card-content white-text"  class="sign-up">
-        <span class="card-title">Add New Character</span>
-          <form ng-submit="users.add(character)">
+        <span class="card-title" ng-click="showAdd = ! showAdd">Add New Character</span>
+          <form ng-submit="users.add(character)" ng-show="showAdd">
            <div class="row">
              <div class="input-field col s6">
                <input id="name" type="text" class="validate" ng-model="character.name">
@@ -15,11 +15,15 @@
              </div>
            </div>
            <div class="row">
-             <div class="input-field col s12">
-               <input id="notes" type="text" class="validate" ng-model="character.notes">
-               <label for="notes">Notes</label>
+             <!-- <div class="input-field col s12">
+               <textarea id="notes" type="materialize-textarea" class="validate" ng-model="character.notes"></textarea>
+               <label for="notes">Notes</label> -->
+               <div class="input-field col s10">
+			            <i class="material-icons prefix">mode_edit</i>
+                  <textarea id="notes" class="materialize-textarea" ng-model="character.notes"></textarea>
+                  <label for="notes">Notes</label>
+               </div>
              </div>
-           </div>
            <button class="btn-large waves-effect waves-light brown" type="submit">Submit</button>
           </form>
       </div>
@@ -42,7 +46,11 @@
           <form ng-submit="users.update(character)" ng-show="showEdit">
             <input type="text" value="{{character.name}}" ng-model="character.name">
             <input type="text" value="{{character.house}}" ng-model="character.house">
-            <input type="text" value="{{character.notes}}" ng-model="character.notes">
+            <div class="input-field col s10">
+               <i class="material-icons prefix">mode_edit</i>
+               <textarea id="notes" class="materialize-textarea" ng-model="character.notes"></textarea>
+               <label for="notes">Notes</label>
+            </div>
             <button class="btn-large waves-effect waves-light brown" type="submit">Save</button>
           </form>
           <form ng-submit="users.delete(character)" ng-show="showEdit">
@@ -78,8 +86,7 @@
                  <div class="tritopright"></div>
                  <div class="tridownleft"></div>
                  <div class="tridownright"></div>
-             </div>
-
+               </div>
          </div>
          <div class="blade-left">
              <div class="fuller-left"></div>
@@ -91,6 +98,5 @@
              <div class="border-left"></div>
              <div class="border-right"></div>
          </div>
-
      </div>
     </div>
