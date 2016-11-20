@@ -30,13 +30,14 @@
         <div id="welcome">
             <a ng-if="users.currentUser" class="brand-logo">Welcome {{users.currentUser.firstName}}</a>
         </div>
-        <ul class="right">
-          <li ng-if="users.currentUser" class="nav"><a ng-click="users.logout(user)">Logout</a></li>
-          <li ng-if="users.currentUser" class="nav"><a ui-sref="profile">Profile</a></li>
-          <li ng-if="!users.currentUser" class="nav"><a ui-sref="home">Signup</a></li>
-          <li class="nav"><a href="http://awoiaf.westeros.org/index.php/Main_Page">Wiki</a></li>
-          <li class="nav"><a ui-sref="houses">Houses</a></li>
-          <li class="nav"><a ng-click="showSearch = ! showSearch">Search</a></li>
+        <a class="dropdown-button btn right black" href="#" data-activates="dropdown">Menu</a>
+        <ul id="dropdown" class="dropdown-content">
+          <li ng-if="users.currentUser" class="nav black"><a ng-click="users.logout(user)">Logout</a></li>
+          <li ng-if="users.currentUser" class="nav black"><a ui-sref="profile">Profile</a></li>
+          <li ng-if="!users.currentUser" class="nav black"><a ui-sref="home">Signup</a></li>
+          <li class="nav black"><a href="http://awoiaf.westeros.org/index.php/Main_Page">Wiki</a></li>
+          <li class="nav black"><a ui-sref="houses">Houses</a></li>
+          <li class="nav black"><a ng-click="showSearch = ! showSearch">Search</a></li>
         </ul>
       </div>
     </nav>

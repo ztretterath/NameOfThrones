@@ -12,14 +12,6 @@ img {
   height: auto;
 }
 
-.house-image {
-  margin-left: 10px;
-  width: auto;
-  height: auto;
-  max-width: 40vw;
-  max-height: 40vh;
-}
-
 input:focus {
   border-bottom: 1px solid #353B40 !important;
   box-shadow: 0 1px 0 0 #353B40 !important;
@@ -36,22 +28,29 @@ textarea:focus {
   color: white !important;
 }
 
-/*.house-image {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+.house-image {
+  margin-left: 10px;
   width: auto;
   height: auto;
-  max-width: 50%;
-  max-height: 50%;
-}*/
-
-/**{
-    box-sizing: border-box;
-}*/
+  max-width: 40vw;
+  max-height: 40vh;
+}
 
 .nav {
   font-size: 30px !important;
+  color: white !important;
+}
+
+#house {
+  color: yellow;
+}
+
+#character {
+  color: red;
+}
+
+#add {
+  color: green !important;
 }
 
 #welcome {
@@ -374,5 +373,11 @@ textarea:focus {
 @media(max-width: 1300px) {
   .all {
     display: none;
+  }
+}
+
+@media(max-width: 900px) {
+  img {
+    width: 100%;
   }
 }
