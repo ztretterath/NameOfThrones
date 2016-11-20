@@ -11,7 +11,7 @@
           self.currentUser = response.data.user;
         })
         .catch(function(error){
-          console.log(error);
+          console.log('ERROR ==> ', error);
         })
 
       // Query API by ID
@@ -28,19 +28,15 @@
           self.charInfo.dob = char.data.born
           self.charInfo.alias = char.data.aliases[0]
           self.charInfo.playedBy = char.data.playedBy[0]
-
-          console.log(self.charInfo);
           return self.charInfo
         })
         .catch(function(error){
-          console.log(error);
+          console.log('ERROR ==> ', error);
         })
       }
 
-      // self.reset = function(character){
-      //   character.name = '';
-      //   character.house = '';
-      //   character.notes = '';
+      // self.reset = function(){
+      //   // self.character = null;
       // }
 
       // Helper to get characters
@@ -60,7 +56,7 @@
       }
 
 
-      this.createUser = function(user){
+      self.createUser = function(user){
         return $http({
           url: '/users/signup',
           method: 'POST',
@@ -75,7 +71,7 @@
         })
       }
 
-      this.login = function(user){
+      self.login = function(user){
         return $http({
           url: '/users/login',
           method: 'POST',
@@ -91,7 +87,7 @@
         })
       }
 
-      this.logout = function(user){
+      self.logout = function(user){
         return $http({
           url: '/users/logout',
           method: 'DELETE',
@@ -99,7 +95,6 @@
         })
         .then(function(response){
           self.currentUser = ''
-          console.log('LOGOUT SUCCESSFUL');
           $state.go('home', {url: '/'})
         })
         .catch(function(error){
@@ -108,14 +103,13 @@
       }
 
       //Add Character
-      this.add = function(character){
+      self.add = function(character){
         return $http({
           url: '/users/add',
           method: 'POST',
           data: character
         })
         .then(function(response){
-          console.log(response);
           self.currentUser.characters.push(character);
           // self.reset();
           self.getChars();
@@ -125,18 +119,17 @@
         })
       }
 
-      this.update = function(character){
+      self.update = function(character){
         $http.put('/users/update', {character: character})
           .then(function(response){
             self.getChars();
-            console.log('UPDATED');
           })
           .catch(function(error){
             console.log('ERROR ==> ', error);
           })
       }
 
-      this.delete = function(character){
+      self.delete = function(character){
         return $http({
           url: `/users/delete/${character._id}`,
           method: 'DELETE',
@@ -144,7 +137,6 @@
         })
         .then(function(reponse){
           self.getChars();
-          console.log('DELETED');
         })
         .catch(function(error){
           console.log(error);
