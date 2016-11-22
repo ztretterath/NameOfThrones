@@ -30,6 +30,7 @@ router.post('/login', passport.authenticate('local'), function(req, res){
   });
 });
 
+//Get characters after CRUD logic
 router.get('/getChars', function(req, res){
   var user = req.session.passport.user;
   User.find({username: user}).exec()
@@ -86,7 +87,6 @@ router.delete('/delete/:characterId', function(req, res){
   var user = req.session.passport.user;
   User.findOne({username: user}).exec()
     .then(function(user){
-      // console.log(user.characters.id(req.params.characterId));
       var character = user.characters.id(req.params.characterId)
       character.remove();
       return user.save();

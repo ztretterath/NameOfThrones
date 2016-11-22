@@ -35,10 +35,6 @@
         })
       }
 
-      // self.reset = function(){
-      //   // self.character = null;
-      // }
-
       // Helper to get characters
       self.getChars = function(characters){
         return $http({
@@ -55,7 +51,7 @@
         })
       }
 
-
+      // Create new instance of user
       self.createUser = function(user){
         return $http({
           url: '/users/signup',
@@ -71,6 +67,7 @@
         })
       }
 
+      // Registered user login
       self.login = function(user){
         return $http({
           url: '/users/login',
@@ -87,6 +84,7 @@
         })
       }
 
+      // Registered user logout
       self.logout = function(user){
         return $http({
           url: '/users/logout',
@@ -111,7 +109,6 @@
         })
         .then(function(response){
           self.currentUser.characters.push(character);
-          // self.reset();
           self.getChars();
         })
         .catch(function(error){
@@ -119,6 +116,7 @@
         })
       }
 
+      // Update existing character
       self.update = function(character){
         $http.put('/users/update', {character: character})
           .then(function(response){
@@ -129,6 +127,7 @@
           })
       }
 
+      // Delete existing character
       self.delete = function(character){
         return $http({
           url: `/users/delete/${character._id}`,

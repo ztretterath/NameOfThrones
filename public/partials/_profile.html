@@ -1,3 +1,11 @@
+<!-- <div id="searchBox">
+  <div class="column">
+    <div class="input-field">
+    Filter<input id="search" type="search" ng-model="searchBox">
+    </div>
+  </div>
+</div> -->
+
 <div class="row">
   <div class="col s12 m6">
     <div class="card black lighten-2">
@@ -28,7 +36,7 @@
   </div>
 </div>
 
-<div ng-repeat="character in users.currentUser.characters">
+<div ng-repeat="character in users.currentUser.characters | filter:searchBox">
 <div class="row">
   <div class="col s12 m6">
     <div class="card black lighten-2">

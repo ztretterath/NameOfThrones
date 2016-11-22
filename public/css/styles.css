@@ -41,6 +41,12 @@ textarea:focus {
   color: white !important;
 }
 
+#searchBox {
+  display: block;
+  position: absolute;
+  right: 20px;
+}
+
 #house {
   color: yellow;
 }
