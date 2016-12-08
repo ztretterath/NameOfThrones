@@ -12,6 +12,10 @@ img {
   height: auto;
 }
 
+.material-icons.active{
+  color: white !important;
+}
+
 input:focus {
   border-bottom: 1px solid #353B40 !important;
   box-shadow: 0 1px 0 0 #353B40 !important;
@@ -155,7 +159,6 @@ textarea:focus {
     position: absolute;
     width: 200px;
     height: 500px;
-    /*background: pink;*/
     left:0px;
     top: 0px;
 
