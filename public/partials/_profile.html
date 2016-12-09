@@ -36,12 +36,12 @@
   </div>
 </div>
 
-<div ng-repeat="character in users.currentUser.characters | filter:searchBox">
 <div class="row">
-  <div class="col s12 m6">
-    <div class="card black lighten-2">
-      <div class="card-content white-text"  class="sign-up">
-        <span class="card-title" ng-click="showNotes = ! showNotes"><span id="character">{{character.name}}</span> of <span id="house">House {{character.house}}</span></span>
+  <div ng-repeat="character in users.currentUser.characters | filter:searchBox">
+    <div class="col m6">
+      <div class="card black lighten-2">
+        <div class="card-content white-text"  class="sign-up">
+          <span class="card-title" ng-click="showNotes = ! showNotes"><span id="character">{{character.name}}</span> of <span class="house">House {{character.house}}</span></span>
           <p ng-show="showNotes" id="notes">
             {{character.notes}}
           </p>
