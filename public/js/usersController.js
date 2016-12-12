@@ -44,10 +44,9 @@
         })
         .then(function(response){
           self.currentUser.characters = response.data.characters;
-          console.log(response);
         })
         .catch(function(error){
-          console.log(error);
+          console.log('ERROR ==> ', error);
         })
       }
 
@@ -60,7 +59,6 @@
         })
         .then(function(response){
           $state.go('login', {url: '/login'})
-          console.log('USER ==> ', response.data.user);
         })
         .catch(function(error){
           console.log('ERROR ==> ', error);
@@ -77,7 +75,6 @@
         .then(function(response){
           self.currentUser = response.data.user
           $state.go('profile', {url: '/profile'});
-          console.log(self.currentUser);
         })
         .catch(function(error){
           console.log('ERROR ==> ', error);
@@ -138,7 +135,7 @@
           self.getChars();
         })
         .catch(function(error){
-          console.log(error);
+          console.log('ERROR ==> ', error);
         })
       }
 

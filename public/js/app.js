@@ -1,5 +1,5 @@
 (function(){
-  angular.module('nameofthrones', ['ui.router'])
+  angular.module('nameofthrones', ['ui.router', 'ngAnimate'])
     .config(MainRouter);
 
     MainRouter.$inject = ['$stateProvider', '$urlRouterProvider']

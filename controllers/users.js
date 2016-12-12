@@ -16,7 +16,6 @@ router.post('/signup', function(req, res){
     if (err) {
       console.log('ERROR ==> ', err);
     } else {
-      console.log('NEW USER ==> ', user);
       res.json({user:user})
     }
   });
@@ -73,9 +72,6 @@ router.put('/update', function(req, res){
       character.house = req.body.character.house;
       character.notes = req.body.character.notes;
       return user.save();
-    })
-    .then(function(response){
-      console.log(response);
     })
     .catch(function(error){
       console.log(error);

@@ -377,3 +377,14 @@ textarea:focus {
     width: 100%;
   }
 }
+
+/*ANIMATIONS*/
+
+body.ng-enter {
+  transition: 1s linear all;
+  opacity: 0;
+}
+
+body.ng-enter.ng-enter-active {
+  opacity: 1;
+}
